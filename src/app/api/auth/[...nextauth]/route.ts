@@ -1,2 +1,5 @@
-import { handlers } from "@/providers/Auth" // Referring to the auth.ts we just created
-export const { GET, POST } = handlers
+import NextAuth from 'next-auth';
+import { authOptions } from '@/providers/Auth';
+
+const handler = NextAuth(authOptions);
+export { handler as GET, handler as POST };

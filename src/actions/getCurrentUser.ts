@@ -1,10 +1,11 @@
 "use server";
 
-import { auth } from "@/providers/Auth";
+import { authOptions } from "@/providers/Auth";
 import prisma from "@/lib/PrismaDb";
+import { getServerSession } from "next-auth";
 
 export async function getSession() {
-	return await auth();
+	return await getServerSession(authOptions)
 }
 
 export async function getCurrentUser() {
